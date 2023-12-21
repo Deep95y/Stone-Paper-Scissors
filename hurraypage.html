@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="hurraypage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body>
+<div class = "container">
+<div class = "top-container">
+    <div class = "middle">
+        <img src = "images/Group5.png"> 
+        <div class = "trophy">  
+            <img src = "images/Vector (1).png"> 
+        </div>
+    </div>
+</div>
+
+<div class = "bottom-container"> 
+<div class = "babybottom1">
+    <p id = "text1">HURRAY!!</p>
+    <p id = "text2">YOU WON THE GAME</p>
+    <div class = "play">
+        <button type = "button" onclick = "playAgain_page()" id = "button">PLAY AGAIN</button>
+    </div>
+</div>
+</div>
+
+<div class = "parent_instruction"  id = "parent" style = "display: none;"> 
+    <div class = "close_icon"  onclick = "hide_rule()" id = "close">
+        <span id = "cross">X</span>
+    </div>
+
+
+<div class = "instruction"> 
+    
+    <ul type = "square">
+    <p id = "head"> Game Rules</p>
+    <li><p id = "para"> Rock beats scissors, scissors beat paper, and paper beats rock.</p></li>
+   <li><p id = "para">  Agree ahead of time whether you’ll count off “rock, paper, scissors, shoot” or just “rock, paper, scissors.”</p></li><br>
+    <li><p id = "para"> Use rock, paper, scissors to settle minor decisions or simply play to pass the time</p></li><br>
+    <li><p id = "para"> If both players lay down the same hand, each player lays down another hand</p></li>
+</ul>
+</div>
+</div>
+
+<div class = "rules_container"> 
+    <button type = "button"  onclick = "show_rule()" id = "rules">RULES</button>
+</div> 
+</div>
+ 
+</body>
+
+<script>
+    function show_rule() {  
+        document.getElementById("parent").style.display = "block";
+    }
+    
+    function hide_rule() {
+        document.getElementById("parent").style.display = "none";
+    }
+
+    function playAgain_page() {
+    var linkedPageUrl = "index.html";
+    window.location.href = linkedPageUrl; 
+    
+}
+
+    
+    
+    </script>
+</html> 

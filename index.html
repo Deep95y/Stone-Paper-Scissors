@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  </head>
+  <body>
+    <div class="top-container">
+      <div class="score-container">
+        <div class="left">
+          <h2>ROCK</h2>
+          <h2>PAPER</h2>
+          <h2>SCISSOR</h2>
+        </div>
+        <div class="right">
+          <div class="box1">
+            <p id="text1"> COMPUTER <br>SCORE </p>
+            <br>
+            <span id = "user_score">0</span>
+          </div>
+          <div class="box2">
+            <p id="text2"> YOUR <br>SCORE </p>
+            <br>
+            <span id = "computer_score">0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="result-bottom-container" style="display: none;">
+      <div class="result-container">
+        <div class="player_side">
+          <div class="left-player-container">
+            <div class="circle-container" id="left_win_circle" style="display: none;">
+              <div class="circle circle1"></div>
+              <div class="circle circle2"></div>
+              <div class="circle circle3"></div>
+            </div>
+            <img src="" class="img-items" id="left-player-circle">
+            <img src="" class="player_element_img" id="player_element_img">
+          </div>
+        </div>
+        <div class="result_side">
+          <p id="win_message"></p>
+          <p id="against_message">AGAINST PC</p>
+          <div class="play">
+            <button type="button" onclick="playAgain()" id="play_again_button">PLAY AGAIN</button>
+          </div>
+        </div>
+        <div class="computer_side">
+          <div class="right-computer-container">
+            <div class="circle-container" id="right_win_circle" style="display: none;">
+              <div class="circle circle1"></div>
+              <div class="circle circle2"></div>
+              <div class="circle circle3"></div>
+            </div>
+            <img src="" class="img-items" id="right-computer-circle">
+            <img src="" class="computer_element_img" id="computer_element_img">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom-container" style="display: block;">
+      <div class="middle-container">
+        <div class="rock-container" onclick="player_option('rock')" id="rock">
+          <img src="images/rock_color.png" class="img-items" id="blue">
+          <img src="images/rock_icon.png" class="element_img">
+        </div>
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+        <div class="scissor-container" onclick="player_option('scissor')" id="scissor">
+          <img src="images/scissor_color.png" class="img-items" id="purple">
+          <img src="images/scissor_icon.png" class="element_img">
+        </div>
+        <div class="paper-container" onclick="player_option('paper')" id="paper">
+          <img src="images/paper_color.png" class="img-items" id="yellow">
+          <img src="images/paper_icon.png" class="element_img">
+        </div>
+      </div>
+    </div>
+    <div class="parent_instruction" id="parent" style="display: none;">
+      <div class="close_icon" onclick="hide_rule()" id="close">
+        <span id="cross">X</span>
+      </div>
+      <div class="instruction">
+        <ul type="square">
+          <p id="head"> Game Rules</p>
+          <li>
+            <p id="para"> Rock beats scissors, scissors beat paper, and paper beats rock.</p>
+          </li>
+          <li>
+            <p id="para"> Agree ahead of time whether you’ll count off “rock, paper, scissors, shoot” or just “rock, paper, scissors.”</p>
+          </li>
+          <br>
+          <li>
+            <p id="para"> Use rock, paper, scissors to settle minor decisions or simply play to pass the time</p>
+          </li>
+          <br>
+          <li>
+            <p id="para"> If both players lay down the same hand, each player lays down another hand</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="rules_container">
+      <div class="rules-button-container">
+        <button type="button" onclick="show_rule()" id="rules">RULES</button>
+      </div>
+      <div class="next-button-container" id = "next-button-container" style="display: none;">
+        <button type="button" onclick="winner_page()" id="next">NEXT</button>
+      </div>
+    </div>
+  </body>
+  <script>
+    var user_score = localStorage.getItem("user_score");
+    var computer_score = localStorage.getItem("computer_score");
+
+    if ((user_score === null) && (computer_score === null)) {
+      var user_score = 0;
+      var computer_score = 0;
+      document.getElementById('user_score').innerHTML = "0";
+      document.getElementById('computer_score').innerHTML = "0";
+    } else{
+      var user_score = parseInt(user_score);
+      var computer_score = parseInt(computer_score);
+      document.getElementById('user_score').innerHTML = user_score;
+      document.getElementById('computer_score').innerHTML = computer_score;
+    }
+
+    function show_rule() {
+      document.getElementById("parent").style.display = "block";
+    }
+
+    function hide_rule() {
+      document.getElementById("parent").style.display = "none";
+    }
+
+    function winner_page() {
+      var linkedPageUrl = "hurraypage.html";
+      window.location.href = linkedPageUrl;
+    }
+
+    function playAgain(){
+      document.querySelector(".result-bottom-container").style.display = "none";
+      document.querySelector(".bottom-container").style.display = "block";
+      document.getElementById('play_again_button').innerHTML = "PLAY AGAIN";
+      document.getElementById('right_win_circle').style.display = "none";
+      document.getElementById('left_win_circle').style.display = "none";
+    }
+
+    function showChoice(player_choice, computer_choice){
+      document.getElementById("left-player-circle").src="images/" + player_choice +"_color.png";
+      document.getElementById("right-computer-circle").src="images/" + computer_choice +"_color.png";
+
+      document.getElementById("player_element_img").src="images/" + player_choice +"_icon.png";
+      document.getElementById("computer_element_img").src="images/" + computer_choice +"_icon.png";
+    }
+
+    function player_option(player_choice) {
+      const computer_choice = computer_option();
+      const result = findWinner(player_choice, computer_choice);
+
+      document.querySelector(".bottom-container").style.display = "none";
+      document.querySelector(".result-bottom-container").style.display = "block";
+      showChoice(player_choice, computer_choice)
+
+      if (result == 'win'){
+        displaywinner(player_choice, computer_choice);
+      } else if (result == 'lose'){
+        displayloser(player_choice, computer_choice);
+      } else if (result == 'tie'){
+        displaytie(player_choice, computer_choice);
+      }
+    }
+
+    function displaywinner(player_choice, computer_choice){
+      user_score = user_score + 1;
+      document.getElementById('win_message').innerHTML = "YOU WIN";
+      document.getElementById('left_win_circle').style.display = "block";
+      document.getElementById('right_win_circle').style.display = "none";
+      document.getElementById('against_message').style.display = "block";
+      document.getElementById('user_score').innerHTML = user_score;
+      document.getElementById('next-button-container').style.display = "block";
+      localStorage.setItem("user_score", user_score);
+    }
+
+    function displayloser(player_choice, computer_choice){
+      computer_score = computer_score + 1;
+      document.getElementById('win_message').innerHTML = "YOU LOST";
+      document.getElementById('right_win_circle').style.display = "block";
+      document.getElementById('left_win_circle').style.display = "none";
+      document.getElementById('against_message').style.display = "block";
+      document.getElementById('computer_score').innerHTML = computer_score;
+      document.getElementById('next-button-container').style.display = "none";
+      localStorage.setItem("computer_score", computer_score);
+    }
+
+    function displaytie(player_choice, computer_choice){
+      document.getElementById('win_message').innerHTML = "TIE UP";
+      document.getElementById('against_message').style.display = "none";
+      document.getElementById('play_again_button').innerHTML = "Replay";      
+      document.getElementById('next-button-container').style.display = "none";
+    }
+
+    function randomIntFromInterval(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min)
+  }
+
+    function computer_option() {
+      const option = ['rock', 'paper', 'scissor'];
+      const pickrandom = randomIntFromInterval(0, 2);
+      return option[pickrandom]
+    }
+
+    function findWinner(player, computer) {
+      if (player === computer) {
+        return "tie"
+      } else if (
+        (player === 'rock' && computer === 'scissor') || (player === 'paper' && computer === 'rock') || (player === 'scissor' && computer === 'paper')) {
+        return "win"
+      } else {
+        return "lose"
+      }
+    }
+  </script>
+</html>
