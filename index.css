@@ -57,7 +57,6 @@
     margin-top: 0.7rem;
     text-align: center;
     color: #656565;
-    font-family: Roboto;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -67,7 +66,6 @@
   span {
     color: #252525;
     text-align: center;
-    font-family: Roboto;
     font-size: 50px;
     font-style: normal;
     font-weight: 700;
@@ -148,6 +146,7 @@
   
   body {
     background: #8cc461;
+    font-family: sans-serif;
   }
   
   #rules {
@@ -157,7 +156,6 @@
     width: 7.5rem;
     height: 2.5rem;
     color: #fff;
-    font-family: Roboto;
     font-size: 1.3rem;
     font-style: normal;
     font-weight: 600;
@@ -207,8 +205,6 @@
   
   #head {
     color: #fff;
-  
-    font-family: Roboto;
     font-size: 2rem;
     font-style: normal;
     font-weight: 500;
@@ -217,9 +213,7 @@
   
   #para {
     text-align: left;
-  
     color: #fff;
-    font-family: Roboto;
     font-size: 1rem;
     font-style: normal;
     font-weight: 400;
@@ -249,7 +243,7 @@
   
   #cross {
     color: #fff;
-    font-family: Dangrek;
+    margin-top: 0.55rem;
     font-size: 2.5rem;
     font-style: normal;
     font-weight: 400;
@@ -263,7 +257,6 @@
     width: 7.5rem;
     height: 2.5rem;
     color: #fff;
-    font-family: Roboto;
     font-size: 1.3rem;
     font-style: normal;
     font-weight: 600;
@@ -385,7 +378,6 @@
   
   #win_message {
     color: #fff;
-    font-family: Roboto;
     font-size: 30px;
     font-weight: 800;
     line-height: 46px;
@@ -395,7 +387,6 @@
   
   .result_side p {
     color: #fff;
-    font-family: Roboto;
     font-size: 20px;
     font-weight: 600;
     line-height: 29px;
@@ -411,7 +402,6 @@
     width: 10rem;
     height: 2.5rem;
     border-radius: 9px;
-    font-family: Roboto;
     color: #6B6B6B;
     font-size: 15px;
     font-weight: 600;
