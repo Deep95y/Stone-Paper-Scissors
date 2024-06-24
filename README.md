@@ -1,4 +1,4 @@
-## Rock-Paper-Scissors Project
+## Pocket Rock-Paper-Scissors
 
 Explore our interactive rock-paper-scissors game! This project features HTML, CSS for styling, and JavaScript for dynamic functionality. Challenge yourself or a friend to a classic game where:
 
